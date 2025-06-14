@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Harshal Bhanushali</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: #fff;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .fullscreen-contact {
+      width: 100%;
+      min-height: 100vh;
+      background-color: #111;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 30px;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      max-width: 1200px;
+      gap: 60px;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .headline {
+      font-size: 3.5rem;
+      color: #00ffe0;
+      margin-bottom: 20px;
+    }
+
+    .subhead {
+      font-size: 1.2rem;
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #1d1d1d;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .btn-submit {
+      padding: 15px;
+      background-color: #00ffe0;
+      border: none;
+      border-radius: 5px;
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background-color: #00e6cc;
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+
+      .headline {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="fullscreen-contact">
+    <div class="contact-container">
+      <div class="left">
+        <h1 class="headline">Let’s connect</h1>
+        <p class="subhead">
+          I’m currently open for freelance work, collaborations, and new opportunities.
+        </p>
+      </div>
+      <div class="right">
+        <form class="contact-form" id="form">
+          <input type="text" id="name" name="name" placeholder="Name" required />
+          <input type="email" id="email" name="email" placeholder="Email" required />
+          <textarea id="message" name="message" rows="6" placeholder="Your message..." required></textarea>
+          <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById("form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      alert(`Thank you, ${name}! Your message has been sent.`);
+      this.reset();
+    });
+  </script>
+</body>
+</html>

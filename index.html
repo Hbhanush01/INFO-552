@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Language Hello Loader</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      transition: transform 1s ease;
+    }
+
+    #word {
+      font-size: 5em;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .slide-up {
+      transform: translateY(-100%);
+    }
+  </style>
+</head>
+<body>
+  <div id="word">Loading...</div>
+
+  <script>
+    const words = ["Hello", "Hola", "Bonjour", "Ciao", "Hallo", "नमस्ते", "こんにちは", "你好"];
+    let i = 0;
+    const wordEl = document.getElementById("word");
+
+    function showNextWord() {
+      wordEl.style.opacity = 0;
+
+      setTimeout(() => {
+        wordEl.textContent = words[i];
+        wordEl.style.opacity = 1;
+        i = (i + 1) % words.length;
+      }, 10);
+
+      setTimeout(showNextWord, 130);
+    }
+
+    showNextWord();
+
+    setTimeout(() => {
+        document.body.classList.add('slide-up');
+        setTimeout(() => {
+        window.location.href = "home.html"; 
+        }, 1000);
+    },2000);
+  </script>
+</body>
+</html>
